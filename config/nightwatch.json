@@ -1,0 +1,31 @@
+{
+  "src_folders" : ["/tests"],
+  "output_folder" : "/reports",
+  "custom_commands_path" : "config/utils",
+  "custom_assertions_path" : "",
+  "page_objects_path" : "",
+  "globals_path" : "config/globalModules.js",
+  "test_settings" : {
+    "default" : {
+      "launch_url" : "http://selenium",
+      "selenium_port"  : 4444,
+      "selenium_host"  : "selenium",
+      "silent": true,
+      "screenshots" : {
+        "enabled" : true,
+        "path" : "/screenshots"
+      },
+      "desiredCapabilities": {
+        "browserName": "chrome",
+        "marionette": true,
+        "javascriptEnabled": true,
+        "acceptSslCerts" : true,
+        "chromeOptions" : {
+          "args" : ["disable-infobars", "window-size=1260,980"]
+        }
+      }
+    }
+
+  }
+}
+

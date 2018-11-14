@@ -1,0 +1,17 @@
+dist: trusty
+sudo: required
+language: python
+
+services:
+  - docker
+
+script:
+  - set -e
+  - docker build -t ${PROJECT}:latest -t ${PROJECT}:$TRAVIS_COMMIT .
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push ${PROJECT}:latest
+  - docker push ${PROJECT}:$TRAVIS_COMMIT
+
+env:
+  global:
+  - PROJECT=canzea/test-nightwatch-runner
